@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <script src="robot-arm.js"></script>
+        <script>
+            // Initialize the robot arm
+            var canvas = document.getElementById("canvas");
+            var robotArm = new RobotArm(canvas);
+
+            // Either use loadLevel or randomLevel to create a start scene
+            robotArm.loadLevel("exercise 10");
+
+            // My instructions come here
+             robotArm.speed = 9999999;
+
+            for(i=0; i<9;){
+            robotArm.grab();
+          
+            for(j=0; j<9-i; j++){
+                robotArm.moveRight();
+            }
+            robotArm.drop();
+            i++;
+            
+            for(j=0; j<9-i; j++){
+                robotArm.moveLeft();
+            }
+            i++
+        }
+            // Call run to run the animations
+            robotArm.run();
+        </script>
+    </body>
+</html>
